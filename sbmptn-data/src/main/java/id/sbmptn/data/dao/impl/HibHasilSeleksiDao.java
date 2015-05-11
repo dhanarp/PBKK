@@ -52,7 +52,7 @@ private SessionFactory sessionFactory;
 				createQuery("update hasil_seleksi set status_terhapus=1 where nama_hasil_seleksi=:nama_hasil_seleksi")
 				.setParameter("nama_hasil_seleksi", nama_hasil_seleksi).executeUpdate();
 	}
-
+	@Transactional(readOnly = true)
 	public List<HasilSeleksi> findByName(String nama_hasil_seleksi) {
 		// TODO Auto-generated method stub
 		List<HasilSeleksi> data = this.getSessionFactory().

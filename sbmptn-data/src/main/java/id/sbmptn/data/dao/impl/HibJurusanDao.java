@@ -52,7 +52,7 @@ public class HibJurusanDao implements JurusanDao {
 				.setParameter("nama_jurusan", nama_jurusan).executeUpdate();
 		
 	}
-
+	@Transactional(readOnly = true)
 	public List<Jurusan> findByName(String nama_jurusan) {
 		List<Jurusan> data = this.getSessionFactory().
 				getCurrentSession()

@@ -53,7 +53,7 @@ private SessionFactory sessionFactory;
 				createQuery("update status_pembayaran set status_terhapus=1 where nama_status_pembayaran=:nama_status_pembayaran")
 				.setParameter("nama_status_pembayaran", nama_status_pembayaran).executeUpdate();
 	}
-
+	@Transactional(readOnly=true)
 	public List<StatusPembayaran> findByName(String nama_status_pembayaran) {
 		List<StatusPembayaran> data = this.getSessionFactory().
 				getCurrentSession()
